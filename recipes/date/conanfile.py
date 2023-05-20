@@ -68,4 +68,4 @@ class DateConan(ConanFile):
         self.cpp_info.set_property("cmake_target_name", "date::date")
         self.cpp_info.names["cmake_find_package"] = "date"
         self.cpp_info.names["cmake_find_package_multi"] = "date"
-        self.cpp_info.includedirs = ["."]
+        self.cpp_info.includedirs = ["include"]
