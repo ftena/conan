@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "include/date-3.0.1/include/date/date.h"
+#include "include/date/date.h"
 //#include "date/tz.h"
 
 int main() {

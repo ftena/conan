@@ -4,6 +4,6 @@
         "conan": {}
     },
     "include": [
-        "/home/link/code/c/conan/recipes/cmake_lib/test_package/build/gcc-10-x86_64-gnu14-release/generators/CMakePresets.json"
+        "/home/tarod/conan/recipes/cmake_lib/test_package/build/generators/CMakePresets.json"
     ]
 }
