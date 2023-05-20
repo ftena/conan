@@ -69,7 +69,3 @@ class DateConan(ConanFile):
         self.cpp_info.names["cmake_find_package"] = "date"
         self.cpp_info.names["cmake_find_package_multi"] = "date"
         self.cpp_info.includedirs = ["."]
-        use_system_tz_db = 0 if self.options.use_system_tz_db else 1
-        defines = ["USE_AUTOLOAD={}".format(use_system_tz_db),
-                   "HAS_REMOTE_API={}".format(use_system_tz_db)]
-        self.cpp_info.defines.extend(defines)
