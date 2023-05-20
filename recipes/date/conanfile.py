@@ -35,10 +35,6 @@ class DateConan(ConanFile):
       tc = CMakeToolchain(self)
       tc.generate()
 
-    def requirements(self):
-        if not self.options.header_only and not self.options.use_system_tz_db:
-            self.requires("libcurl/8.0.1")
-
     def source(self):
         get(self, **self.conan_data["sources"][self.version], strip_root=True)
 
@@ -49,20 +45,14 @@ class DateConan(ConanFile):
 
     def package(self):
         copy(self, "LICENSE.txt", dst=os.path.join(self.package_folder, "licenses"), src=self.source_folder)
-        if self.options.header_only:
-            src = os.path.join(self.source_folder, "include", "date")
-            dst = os.path.join(self.package_folder, "include", "date")
-            copy(self, "date.h", dst=dst, src=src)
-            copy(self, "tz.h", dst=dst, src=src)
-            copy(self, "ptz.h", dst=dst, src=src)
-            copy(self, "iso_week.h", dst=dst, src=src)
-            copy(self, "julian.h", dst=dst, src=src)
-            copy(self, "islamic.h", dst=dst, src=src)
-        else:
-            cmake = CMake(self)
-            cmake.install()
-            rmdir(self, os.path.join(self.package_folder, "lib", "cmake"))
-            rmdir(self, os.path.join(self.package_folder, "CMake"))
+        src = os.path.join(self.source_folder, "include", "date")
+        dst = os.path.join(self.package_folder, "include", "date")
+        copy(self, "date.h", dst=dst, src=src)
+        copy(self, "tz.h", dst=dst, src=src)
+        copy(self, "ptz.h", dst=dst, src=src)
+        copy(self, "iso_week.h", dst=dst, src=src)
+        copy(self, "julian.h", dst=dst, src=src)
+        copy(self, "islamic.h", dst=dst, src=src)
 
     def package_info(self):
         self.cpp_info.set_property("cmake_target_name", "date::date")
