@@ -48,6 +48,7 @@ class DateConan(ConanFile):
         cmake.build()
 
     def package(self):
+        copy(self, "LICENSE.txt", dst=os.path.join(self.package_folder, "licenses"), src=self.source_folder)
         if self.options.header_only:
             src = os.path.join(self.source_folder, "include", "date")
             dst = os.path.join(self.package_folder, "include", "date")
@@ -64,6 +65,7 @@ class DateConan(ConanFile):
             rmdir(self, os.path.join(self.package_folder, "CMake"))
 
     def package_info(self):
+        self.cpp_info.set_property("cmake_target_name", "date::date")
         self.cpp_info.names["cmake_find_package"] = "date"
         self.cpp_info.names["cmake_find_package_multi"] = "date"
         self.cpp_info.includedirs = ["."]
