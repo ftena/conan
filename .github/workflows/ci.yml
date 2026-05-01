@@ -1,0 +1,20 @@
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Conan
+        uses: conan-io/setup-conan@v1
+
+      - name: Conan Create
+        run: |
+          cd recipes/date
+          conan create . --version=3.0.1 --user=ftena --channel=main -pr=../../profiles/gcc11_cxx14_release
+
