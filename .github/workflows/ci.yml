@@ -32,4 +32,18 @@ jobs:
         run: |
           cd recipes/date
           conan create . --version=3.0.1 --user=ftena --channel=main -pr:h=../../profiles/gcc11_cxx14_release -pr:b=../../profiles/gcc11_cxx14_release --build=missing
+  
+  conan_date_onlyheader:
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Conan
+        uses: conan-io/setup-conan@v1
+
+      - name: Conan Create
+        run: |
+          cd recipes/date-onlyheader
+          conan create . --version=3.0.1 --user=ftena --channel=main -pr:h=../../profiles/gcc11_cxx14_release -pr:b=../../profiles/gcc11_cxx14_release

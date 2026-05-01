@@ -33,7 +33,7 @@ class DateConan(ConanFile):
       deps = CMakeDeps(self)
       deps.generate()
 
-    def source(self
+    def source(self):
         get(self, **self.conan_data["sources"][self.version], strip_root=True)
 
     def build(self):
