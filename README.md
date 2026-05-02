@@ -1,5 +1,5 @@
 # conan
-Things (experiments) about conan.
+conan profiles.
 
 ## cmake_lib
 
