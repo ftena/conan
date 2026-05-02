@@ -17,6 +17,7 @@ jobs:
         run: |
           cd recipes/cmake_lib
           conan create . 
+          # conan upload <package_name>/* --all -r <myremote> -c
 
   conan_date:
     runs-on: ubuntu-latest
@@ -34,7 +35,8 @@ jobs:
           conan create . --version=3.0.1 --user=ftena --channel=main \
           -pr:h=../../profiles/gcc11_cxx14_release \
           -pr:b=../../profiles/gcc11_cxx14_release --build=missing
-  
+          # conan upload <package_name>/* --all -r <myremote> -c
+
   conan_date_onlyheader:
     runs-on: ubuntu-latest
 
@@ -51,6 +53,7 @@ jobs:
           conan create . --version=3.0.1 --user=ftena --channel=main \
           -pr:h=../../profiles/gcc11_cxx14_release \
           -pr:b=../../profiles/gcc11_cxx14_release
+          # conan upload <package_name>/* --all -r <myremote> -c
 
   conan_spdlog:
     runs-on: ubuntu-latest
@@ -68,3 +71,4 @@ jobs:
           conan create . --version=1.11.0 --user=ftena --channel=main \
           -pr:h=../../profiles/gcc11_cxx14_release \
           -pr:b=../../profiles/gcc11_cxx14_release
+          # conan upload <package_name>/* --all -r <myremote> -c
