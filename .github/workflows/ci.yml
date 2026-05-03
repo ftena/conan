@@ -80,7 +80,7 @@ jobs:
         profile:
           - ../../profiles/gcc11_cxx14_debug
           - ../../profiles/gcc11_cxx14_release
-          - ../../profiles/gcc13_cxx14_debuge
+          - ../../profiles/gcc13_cxx14_debug
           - ../../profiles/gcc13_cxx14_release
 
     steps:
