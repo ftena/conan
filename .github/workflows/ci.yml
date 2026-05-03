@@ -93,7 +93,7 @@ jobs:
       - name: Conan Create
         working-directory: recipes/gtest
         run: |
-          conan create . --user=ftena --channel=main \
+          conan create . --version=1.16.0 --user=ftena --channel=main \
             -pr:h=${{ matrix.profile }} \
             -pr:b=${{ matrix.profile }} \
           # conan upload <package_name>/* --all -r <myremote> -c
