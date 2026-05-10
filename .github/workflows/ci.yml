@@ -70,7 +70,8 @@ jobs:
           cd recipes/spdlog
           conan create . --version=1.11.0 --user=ftena --channel=main \
           -pr:h=../../profiles/gcc11_cxx14_release \
-          -pr:b=../../profiles/gcc11_cxx14_release
+          -pr:b=../../profiles/gcc11_cxx14_release \
+          --build=fmt/10.0.0
           # conan upload <package_name>/* --all -r <myremote> -c
 
   conan_gtest:
