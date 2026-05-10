@@ -19,6 +19,24 @@ jobs:
           conan create . 
           # conan upload <package_name>/* --all -r <myremote> -c
 
+  conan_curllib:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Conan
+        uses: conan-io/setup-conan@v1
+
+      - name: Conan Create
+        run: |
+          cd recipes/curllib
+          conan create . --version=0.0.1 --user=ftena --channel=main \
+          -pr:h=../../profiles/gcc11_cxx14_release \
+          -pr:b=../../profiles/gcc11_cxx14_release --build=missing
+          # conan upload <package_name>/* --all -r <myremote> -c
+
   conan_date:
     runs-on: ubuntu-latest
 
